@@ -1,0 +1,57 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0px;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  color: rgb(243, 242, 237);
+  background-color: black;
+}
+
+header {
+  display: flex;
+  height: 10vh;
+  font-size: 4.5em;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5em;
+  height: 8vh;
+  font-size: 1em;
+  padding: 0.5em;
+}
+
+footer a {
+  color: inherit;
+}
+
+footer a:active {
+  display: flex;
+  align-items: flex-end;
+  color: inherit;
+}
+
+footer a img:hover {
+  transform: scale(3);
+}
+
+footer img {
+  height: 1.5em;
+  width: 1.5em;
+}
