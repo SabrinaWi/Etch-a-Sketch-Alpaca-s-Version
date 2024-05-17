@@ -23,7 +23,7 @@ body {
 
 header {
   display: flex;
-  height: 10vh;
+  min-height: 10vh;
   font-size: 4.5em;
   justify-content: center;
   align-items: center;
@@ -40,7 +40,8 @@ main {
 }
 
 .menu,
-.sketch-area {
+.sketch-area,
+.screen {
   border-radius: 5px;
 }
 
@@ -57,13 +58,29 @@ main {
 }
 
 .sketch-area {
-  background-color: aqua;
+  background-color: mediumseagreen;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   aspect-ratio: 1/1;
-  border: solid mediumseagreen 1em;
+}
+
+.screen {
+  background-color: aqua;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 3.5em);
+  aspect-ratio: 1/1;
+}
+
+.square {
+  background-color: black;
+  border: solid white 0.1 em;
+  aspect-ratio: 1/1;
+  flex-grow: 1;
 }
 
 footer {
