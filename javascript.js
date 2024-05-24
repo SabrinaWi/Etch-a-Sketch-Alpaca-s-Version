@@ -1,27 +1,35 @@
 const promptBtn = document.querySelector('button[name="prompt-btn"]');
 
-let squaresAmount = 0;
+let squaresNumber = 0;
 
-function storeSquaresAmount() {
-  squaresAmount = prompt("Please enter a number between 1 and 100!");
-  return squaresAmount;
+function getSquaresNumber() {
+  squaresNumber = prompt("Please enter a number between 1 and 100!");
+  return squaresNumber;
 }
 
 promptBtn.addEventListener("click", () => {
   clearSquares();
-  storeSquaresAmount();
-  createSquares(squaresAmount);
+  getSquaresNumber();
+  createSquares(squaresNumber);
 });
 
 const screen = document.querySelector(".screen");
 
 // Create a div and append it to screen
 
-const square = document.createElement("div");
+const screenWidth = screen.clientWidth;
+const screenHeight = screen.clientHeight;
 
-function createSquares(squaresAmount) {
-  for (let i = 0; i < squaresAmount * squaresAmount; i++) {
+let squareWidth = 0;
+let squareHeight = 0;
+
+function createSquares(squaresNumber) {
+  for (let i = 0; i < squaresNumber * squaresNumber; i++) {
     const square = document.createElement("div");
+    squareWidth = screenWidth / squaresNumber;
+    squareHeight = screenHeight / squaresNumber;
+    square.style.width = squareWidth + "px";
+    square.style.height = squareHeight + "px";
     square.classList.add("square");
     screen.appendChild(square);
   }
