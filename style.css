@@ -54,7 +54,11 @@ main {
 
 .color-btns button {
   width: 2.5em;
-  height: 2.5em;
+  aspect-ratio: 1 / 1;
+}
+
+#red-btn {
+  background-color: red;
 }
 
 .sketch-area {
@@ -64,6 +68,7 @@ main {
   align-items: center;
   height: 100%;
   aspect-ratio: 1/1;
+  padding: 3.5em;
 }
 
 .screen {
@@ -71,13 +76,13 @@ main {
   border: solid darkolivegreen 0.1em;
   display: flex;
   flex-wrap: wrap;
-  width: 600px;
-  height: 600px;
+  height: 100%;
+  aspect-ratio: 1 / 1;
 }
 
 .square {
   background-color: black;
-  border: none;
+  border: solid white 0.1em;
   flex-grow: 1;
 }
 
