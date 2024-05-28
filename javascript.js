@@ -59,34 +59,44 @@ function errorMessage(squaresNumber) {
 
 //Toggle what should happen on mouseover
 
-//Red color button
+let colorChoice = "";
 
-const redBtn = document.querySelector('button[name="red-btn"]');
+const colorBtns = document.querySelectorAll(".color-btns button");
 
-redBtn.addEventListener("click", () => {
-  setMouseState();
-  setSqrColor(mouseState);
-});
-
-let mouseState = "";
-
-function setMouseState() {
-  mouseState = redBtn.getAttribute("name");
+function getColorChoice(event) {
+  colorBtn = event.target;
+  colorChoice = colorBtn.getAttribute("name");
+  setSqrColor(colorChoice);
 }
+
+colorBtns.forEach((colorBtn) => {
+  colorBtn.addEventListener("click", getColorChoice);
+});
 
 sqrColor = "";
 
-function setSqrColor(mouseState) {
-  switch (mouseState) {
+function setSqrColor(colorChoice) {
+  switch (colorChoice) {
     case "red-btn":
-      sqrColor = "#db1828";
+      sqrColor = "#e81416";
       break;
     case "blue-btn":
       sqrColor = "#181fdb";
       break;
     case "green-btn":
+      sqrColor = "#79c314";
+      break;
+    case "violet-btn":
+      sqrColor = "#d527db";
+      break;
+    case "orange-btn":
+      sqrColor = "#ffa500";
+      break;
+    case "green-btn":
       sqrColor = "#26ad36";
+      break;
   }
+
   return sqrColor;
 }
 

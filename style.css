@@ -58,7 +58,23 @@ main {
 }
 
 #red-btn {
-  background-color: red;
+  background-color: #e81416;
+}
+
+#blue-btn {
+  background-color: #487de7;
+}
+#green-btn {
+  background-color: #79c314;
+}
+#violet-btn {
+  background-color: #d527db;
+}
+#orange-btn {
+  background-color: #ffa500;
+}
+#rainbow-btn {
+  background-image: ;
 }
 
 .sketch-area {
