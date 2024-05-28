@@ -18,6 +18,7 @@ promptBtn.addEventListener("click", () => {
 });
 
 const screen = document.querySelector(".screen");
+const square = document.querySelector(".square");
 
 // Create a div and append it to .screen
 
@@ -36,6 +37,7 @@ function createSquares(squaresNumber) {
     square.style.height = squareHeight + "px";
     square.classList.add("square");
     screen.appendChild(square);
+    activateListener(square);
   }
 }
 
@@ -53,8 +55,51 @@ function errorMessage(squaresNumber) {
 }
 
 // CHANGE SQUARE COLORS
-//TODO when it works for one button, rewrite so that it works for all (not separate handler for ech button!)
+//TODO when it works for one button, rewrite so that it works for all (not separate handler for each button!)
+
+//Toggle what should happen on mouseover
+
+//Red color button
 
 const redBtn = document.querySelector('button[name="red-btn"]');
 
-redBtn.addEventListener("click", () => {});
+redBtn.addEventListener("click", () => {
+  setMouseState();
+  setSqrColor(mouseState);
+});
+
+let mouseState = "";
+
+function setMouseState() {
+  mouseState = redBtn.getAttribute("name");
+}
+
+sqrColor = "";
+
+function setSqrColor(mouseState) {
+  switch (mouseState) {
+    case "red-btn":
+      sqrColor = "#db1828";
+      break;
+    case "blue-btn":
+      sqrColor = "#181fdb";
+      break;
+    case "green-btn":
+      sqrColor = "#26ad36";
+  }
+  return sqrColor;
+}
+
+function activateListener(square) {
+  if (square) {
+    square.addEventListener("mousemove", () => {
+      if (sqrColor) {
+        square.style.backgroundColor = sqrColor;
+      }
+    });
+  }
+}
+
+// function changeSqrBackground(sqrColor) {
+//   square.style.backgroundColor = sqrColor;
+// }
