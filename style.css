@@ -91,6 +91,9 @@ main {
     #ca00fd 92.4%
   );
 }
+#black-btn {
+  background-color: #000000;
+}
 
 .sketch-area {
   background-color: #40454f;
@@ -103,7 +106,7 @@ main {
 }
 
 .screen {
-  background-color: #e1e3e6;
+  background-color: #d2d5da;
   border: solid #4a515d 0.1em;
   display: flex;
   flex-wrap: wrap;

@@ -22,19 +22,11 @@ const square = document.querySelector(".square");
 
 // Create a div and append it to .screen
 
-const screenWidth = screen.clientWidth;
-const screenHeight = screen.clientHeight;
-
-let squareWidth = 0;
-let squareHeight = 0;
-
 function createSquares(squaresNumber) {
   for (let i = 0; i < squaresNumber * squaresNumber; i++) {
     const square = document.createElement("div");
-    squareWidth = screenWidth / squaresNumber;
-    squareHeight = screenHeight / squaresNumber;
-    square.style.width = squareWidth + "px";
-    square.style.height = squareHeight + "px";
+    square.style.width = `${100 / squaresNumber}%`;
+    square.style.height = `${100 / squaresNumber}%`;
     square.classList.add("square");
     screen.appendChild(square);
     activateListener(square);
@@ -97,6 +89,9 @@ function setSqrColor(colorChoice) {
       break;
     case "violet-btn":
       sqrColor = "#ca00fd";
+      break;
+    case "black-btn":
+      sqrColor = "#000000";
       break;
   }
 
