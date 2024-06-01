@@ -58,23 +58,38 @@ main {
 }
 
 #red-btn {
-  background-color: #e81416;
+  background-color: #df0000;
 }
 
-#blue-btn {
-  background-color: #487de7;
+#orange-btn {
+  background-color: #d65b00;
+}
+#yellow-btn {
+  background-color: #e9f500;
 }
 #green-btn {
-  background-color: #79c314;
+  background-color: #17ff11;
+}
+#liteblue-btn {
+  background-color: #1dffff;
+}
+#darkblue-btn {
+  background-color: #0511ff;
 }
 #violet-btn {
-  background-color: #d527db;
-}
-#orange-btn {
-  background-color: #ffa500;
+  background-color: #ca00fd;
 }
 #rainbow-btn {
-  background-image: ;
+  background-image: linear-gradient(
+    89.7deg,
+    #df0000 2.7%,
+    #d65b00 15.1%,
+    #e9f500 29.5%,
+    #17ff11 45.8%,
+    #1dffff 61.5%,
+    #0511ff 76.4%,
+    #ca00fd 92.4%
+  );
 }
 
 .sketch-area {

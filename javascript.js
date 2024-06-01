@@ -78,22 +78,25 @@ sqrColor = "";
 function setSqrColor(colorChoice) {
   switch (colorChoice) {
     case "red-btn":
-      sqrColor = "#e81416";
-      break;
-    case "blue-btn":
-      sqrColor = "#181fdb";
-      break;
-    case "green-btn":
-      sqrColor = "#79c314";
-      break;
-    case "violet-btn":
-      sqrColor = "#d527db";
+      sqrColor = "#df0000";
       break;
     case "orange-btn":
-      sqrColor = "#ffa500";
+      sqrColor = "#d65b00";
+      break;
+    case "yellow-btn":
+      sqrColor = "#e9f500";
       break;
     case "green-btn":
-      sqrColor = "#26ad36";
+      sqrColor = "#17ff11";
+      break;
+    case "liteblue-btn":
+      sqrColor = "#1dffff";
+      break;
+    case "darkblue-btn":
+      sqrColor = "#0511ff";
+      break;
+    case "violet-btn":
+      sqrColor = "#ca00fd";
       break;
   }
 
