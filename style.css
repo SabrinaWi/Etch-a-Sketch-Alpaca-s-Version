@@ -5,7 +5,7 @@ html {
   *:before,
   *:after {
     box-sizing: inherit;
-    border: solid white 1px;
+    /* border: solid #f6f6f7 1px; */
   }
 }
 
@@ -17,7 +17,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  color: rgb(243, 242, 237);
+  color: #f6f6f7;
   background-color: black;
 }
 
@@ -49,7 +49,7 @@ main {
   width: 15vw;
   min-width: fit-content;
   height: 100%;
-  background-color: darkviolet;
+  background-color: #40454f;
 }
 
 .color-btns button {
@@ -93,7 +93,7 @@ main {
 }
 
 .sketch-area {
-  background-color: mediumseagreen;
+  background-color: #40454f;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,8 +103,8 @@ main {
 }
 
 .screen {
-  background-color: darkgrey;
-  border: solid darkolivegreen 0.1em;
+  background-color: #e1e3e6;
+  border: solid #4a515d 0.1em;
   display: flex;
   flex-wrap: wrap;
   height: 100%;
@@ -113,7 +113,7 @@ main {
 
 .square {
   background-color: black;
-  border: solid white 0.1em;
+  border: solid #f6f6f7 0.1em;
   flex-grow: 1;
 }
 
