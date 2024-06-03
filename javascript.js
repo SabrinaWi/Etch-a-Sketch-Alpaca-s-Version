@@ -29,7 +29,7 @@ function createSquares(squaresNumber) {
     square.style.height = `${100 / squaresNumber}%`;
     square.classList.add("square");
     screen.appendChild(square);
-    activateListener(square);
+    activateMouseListener(square);
   }
 }
 
@@ -98,16 +98,24 @@ function setSqrColor(colorChoice) {
   return sqrColor;
 }
 
-function activateListener(square) {
-  if (square) {
-    square.addEventListener("mousemove", () => {
-      if (sqrColor) {
-        square.style.backgroundColor = sqrColor;
-      }
-    });
-  }
-}
+function activateMouseListener(square) {
+  square.addEventListener("mousemove", () => {
+    if (isMouseDown && sqrColor) {
+      square.style.backgroundColor = sqrColor;
+    }
+  });
 
-// function changeSqrBackground(sqrColor) {
-//   square.style.backgroundColor = sqrColor;
-// }
+  square.addEventListener("mousedown", () => {
+    isMouseDown = true;
+  });
+
+  square.addEventListener("mouseup", () => {
+    isMouseDown = false;
+  });
+
+  square.addEventListener("click", () => {
+    if (sqrColor) {
+      square.style.backgroundColor = sqrColor;
+    }
+  });
+}
