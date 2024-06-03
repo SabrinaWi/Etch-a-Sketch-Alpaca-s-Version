@@ -46,10 +46,20 @@ main {
 }
 
 .menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   width: 15vw;
-  min-width: fit-content;
   height: 100%;
   background-color: #40454f;
+  padding: 0 2.5em;
+}
+
+.start,
+.color-btns,
+.special {
+  background-color: #797c83;
+  padding: 1em 0;
 }
 
 .color-btns button {
