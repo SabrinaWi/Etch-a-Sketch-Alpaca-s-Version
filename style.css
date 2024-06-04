@@ -60,6 +60,7 @@ main {
 .special {
   background-color: #797c83;
   padding: 1em 0;
+  border-radius: 3%;
 }
 
 .color-btns button {
@@ -151,7 +152,7 @@ footer a:active {
 }
 
 footer a img:hover {
-  transform: scale(3);
+  transform: scale(2);
 }
 
 footer img {

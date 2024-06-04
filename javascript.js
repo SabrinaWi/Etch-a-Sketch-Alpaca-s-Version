@@ -90,6 +90,9 @@ function setSqrColor(colorChoice) {
     case "violet-btn":
       sqrColor = "#ca00fd";
       break;
+    case "rainbow-btn":
+      sqrColor = "rainbow";
+      break;
     case "black-btn":
       sqrColor = "#000000";
       break;
@@ -98,10 +101,28 @@ function setSqrColor(colorChoice) {
   return sqrColor;
 }
 
+const colorArray = [
+  "#df0000",
+  "#d65b00",
+  "#e9f500",
+  "#17ff11",
+  "#1dffff",
+  "#0511ff",
+  "#ca00fd",
+  "#000000",
+];
+const randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
+
 function activateMouseListener(square) {
   square.addEventListener("mousemove", () => {
     if (isMouseDown && sqrColor) {
       square.style.backgroundColor = sqrColor;
+    }
+
+    if (isMouseDown && sqrColor === "rainbow") {
+      const randomColor =
+        colorArray[Math.floor(Math.random() * colorArray.length)];
+      square.style.backgroundColor = randomColor;
     }
   });
 
@@ -116,6 +137,11 @@ function activateMouseListener(square) {
   square.addEventListener("click", () => {
     if (sqrColor) {
       square.style.backgroundColor = sqrColor;
+    }
+    if (sqrColor === "rainbow") {
+      const randomColor =
+        colorArray[Math.floor(Math.random() * colorArray.length)];
+      square.style.backgroundColor = randomColor;
     }
   });
 }
