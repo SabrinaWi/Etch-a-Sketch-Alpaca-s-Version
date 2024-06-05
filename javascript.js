@@ -47,9 +47,6 @@ function errorMessage(squaresNumber) {
 }
 
 // CHANGE SQUARE COLORS
-//TODO when it works for one button, rewrite so that it works for all (not separate handler for each button!)
-
-//Toggle what should happen on mouseover
 
 let colorChoice = "";
 
@@ -124,6 +121,9 @@ function activateMouseListener(square) {
         colorArray[Math.floor(Math.random() * colorArray.length)];
       square.style.backgroundColor = randomColor;
     }
+    if (isMouseDown && screen.style.backgroundImage === alpacaImg) {
+      square.style.opacity = "0";
+    }
   });
 
   square.addEventListener("mousedown", () => {
@@ -144,4 +144,23 @@ function activateMouseListener(square) {
       square.style.backgroundColor = randomColor;
     }
   });
+}
+
+//SPECIAL BUTTON
+
+const specialBtn = document.querySelector('button[name="alpaca-btn"]');
+
+specialBtn.addEventListener("click", () => {
+  clearSquares();
+  addAlpacaImg();
+  createSquares(20);
+});
+
+const alpacaImg = document.createElement("img");
+
+function addAlpacaImg() {
+  alpacaImg.src = "./img/alpacasmol.png";
+  alpacaImg.alt = "An image of a small brown alpaca.";
+  alpacaImg.classList.add("alpaca-img");
+  screen.appendChild(alpacaImg);
 }

@@ -124,6 +124,11 @@ main {
   height: 100%;
   aspect-ratio: 1 / 1;
 }
+.alpaca-img {
+  border: solid #4a515d 0.1em;
+  height: 100%;
+  width: 100%;
+}
 
 .square {
   background-color: black;
