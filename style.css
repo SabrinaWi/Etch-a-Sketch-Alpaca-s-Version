@@ -41,7 +41,7 @@ main {
 
 .menu,
 .sketch-area,
-.screen {
+.canvas {
   border-radius: 5px;
 }
 
@@ -116,7 +116,7 @@ main {
   padding: 3.5em;
 }
 
-.screen {
+.canvas {
   background-color: #d2d5da;
   border: solid #4a515d 0.1em;
   display: flex;
@@ -124,10 +124,10 @@ main {
   height: 100%;
   aspect-ratio: 1 / 1;
 }
-.alpaca-img {
-  border: solid #4a515d 0.1em;
-  height: 100%;
-  width: 100%;
+
+.canvas.alpaca-img {
+  background-image: url(./img/alpacasmol.png);
+  background-size: cover;
 }
 
 .square {

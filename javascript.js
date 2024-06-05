@@ -1,4 +1,4 @@
-// CREATE SQUARES INSIDE THE SCREEN DIV
+// CREATE SQUARES INSIDE THE canvas DIV
 
 const promptBtn = document.querySelector('button[name="prompt-btn"]');
 
@@ -11,16 +11,18 @@ function getSquaresNumber() {
 }
 
 promptBtn.addEventListener("click", () => {
+  sqrColor = ""; //remove color from previous round so user chooses new one
   clearSquares();
+  removeAlpacaImg();
   getSquaresNumber();
   errorMessage(squaresNumber);
   createSquares(squaresNumber);
 });
 
-const screen = document.querySelector(".screen");
+const canvas = document.querySelector(".canvas");
 const square = document.querySelector(".square");
 
-// Create a div and append it to .screen
+// Create a div and append it to .canvas
 
 function createSquares(squaresNumber) {
   for (let i = 0; i < squaresNumber * squaresNumber; i++) {
@@ -28,20 +30,24 @@ function createSquares(squaresNumber) {
     square.style.width = `${100 / squaresNumber}%`;
     square.style.height = `${100 / squaresNumber}%`;
     square.classList.add("square");
-    screen.appendChild(square);
-    activateMouseListener(square);
+    canvas.appendChild(square);
+    if (canvas.classList.contains("alpaca-img")) {
+      activateAlpacaMouseListener(square);
+    } else {
+      activateMouseListener(square);
+    }
   }
 }
 
 function clearSquares() {
   const existingSquares = document.querySelectorAll(".square");
   existingSquares.forEach((square) => {
-    screen.removeChild(square);
+    canvas.removeChild(square);
   });
 }
 
 function errorMessage(squaresNumber) {
-  if (squaresNumber < 0 || squaresNumber > 100) {
+  if (squaresNumber < 1 || squaresNumber > 100) {
     getSquaresNumber();
   }
 }
@@ -121,9 +127,6 @@ function activateMouseListener(square) {
         colorArray[Math.floor(Math.random() * colorArray.length)];
       square.style.backgroundColor = randomColor;
     }
-    if (isMouseDown && screen.style.backgroundImage === alpacaImg) {
-      square.style.opacity = "0";
-    }
   });
 
   square.addEventListener("mousedown", () => {
@@ -156,11 +159,33 @@ specialBtn.addEventListener("click", () => {
   createSquares(20);
 });
 
-const alpacaImg = document.createElement("img");
+function activateAlpacaMouseListener(square) {
+  let squareOpacity = 1;
+  square.addEventListener("mousemove", () => {
+    if (isMouseDown) {
+      squareOpacity -= 0.1;
+      square.style.opacity = squareOpacity;
+    }
+  });
+
+  square.addEventListener("mousedown", () => {
+    isMouseDown = true;
+  });
+
+  square.addEventListener("mouseup", () => {
+    isMouseDown = false;
+  });
+
+  square.addEventListener("click", () => {
+    squareOpacity -= 0.1;
+    square.style.opacity = squareOpacity;
+  });
+}
 
 function addAlpacaImg() {
-  alpacaImg.src = "./img/alpacasmol.png";
-  alpacaImg.alt = "An image of a small brown alpaca.";
-  alpacaImg.classList.add("alpaca-img");
-  screen.appendChild(alpacaImg);
+  canvas.classList.add("alpaca-img");
+}
+
+function removeAlpacaImg() {
+  canvas.classList.remove("alpaca-img");
 }
