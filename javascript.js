@@ -112,7 +112,6 @@ const colorArray = [
   "#1dffff",
   "#0511ff",
   "#ca00fd",
-  "#000000",
 ];
 const randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
 

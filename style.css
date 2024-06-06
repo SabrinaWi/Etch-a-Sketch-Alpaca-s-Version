@@ -5,15 +5,16 @@ html {
   *:before,
   *:after {
     box-sizing: inherit;
-    /* border: solid #f6f6f7 1px; */
+    /* border: solid #f6f6f7 0.15rem; */
   }
 }
 
 body {
   font-family: Arial, sans-serif;
-  margin: 0px;
+  font-size: 1rem;
+  margin: 0;
   display: flex;
-  height: 100vh;
+  height: 100dvh;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
@@ -23,48 +24,87 @@ body {
 
 header {
   display: flex;
-  min-height: 10vh;
-  font-size: 4.5em;
+  min-height: 10dvh;
+  font-size: 4.5rem;
   justify-content: center;
   align-items: center;
 }
 
 main {
   display: flex;
-  height: 82vh;
+  height: 82dvh;
   flex-grow: 1;
   justify-content: center;
   align-items: center;
-  padding: 5% 3% 5% 3%;
-  gap: 3%;
+  padding: 1rem 0;
+  gap: 4rem;
 }
 
 .menu,
 .sketch-area,
 .canvas {
-  border-radius: 5px;
+  border-radius: 0.5rem;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 15vw;
   height: 100%;
   background-color: #40454f;
-  padding: 0 2.5em;
+  padding: 0 1rem 3.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0.5rem;
 }
 
 .start,
 .color-btns,
 .special {
   background-color: #797c83;
-  padding: 1em 0;
-  border-radius: 3%;
+  padding: 0.5rem 0.4rem;
+  border-radius: 0.5rem;
+}
+
+button {
+  border: solid #f6f6f7 0.05rem;
+  border-radius: 0.25rem;
+}
+
+button:hover {
+  border: solid #40454f 0.05rem;
+  border-radius: 0.25rem;
+}
+
+button:active {
+  border: solid #40454f 0.05rem;
+  border-radius: 0.25rem;
+  box-shadow: 0rem 4.05px 8.1px #f6f6f7,
+    /* Shadow for bottom */ 4.05px 0rem 8.1px #f6f6f7,
+    /* Shadow for right side */ -4.05px 0rem 8.1px #f6f6f7,
+    /* Shadow for left side */ 0rem -4.05px 8.1px #f6f6f7,
+    /* Shadow for top */ 0rem 1.62px 4.05px rgba(198, 170, 88, 0.5),
+    /* Inner shadow */ 4.05px 0rem 4.05px rgba(198, 170, 88, 0.5),
+    -4.05px 0rem 4.05px rgba(198, 170, 88, 0.5),
+    0rem -1.62px 4.05px rgba(198, 170, 88, 0.5);
+}
+
+.start button,
+.special button {
+  background-color: #40454f;
+  color: #f6f6f7;
 }
 
 .color-btns button {
-  width: 2.5em;
+  width: 2rem;
   aspect-ratio: 1 / 1;
 }
 
@@ -113,17 +153,25 @@ main {
   align-items: center;
   height: 100%;
   aspect-ratio: 1/1;
-  padding: 3.5em;
+  padding: 3.5rem;
 }
 
 .canvas {
   background-color: #d2d5da;
-  border: solid #4a515d 0.1em;
+  border: solid #4a515d 0.1rem;
   display: flex;
   flex-wrap: wrap;
   height: 100%;
   aspect-ratio: 1 / 1;
 }
+
+/* canvas.painting {
+  cursor: url(./img/brush-stroke-rounded.svg);
+}
+
+canvas.erasing {
+  cursor: url(./img/eraser-stroke-rounded.svg);
+} */
 
 .canvas.alpaca-img {
   background-image: url(./img/alpacasmol.png);
@@ -132,7 +180,7 @@ main {
 
 .square {
   background-color: black;
-  border: solid #f6f6f7 0.1em;
+  border: solid #f6f6f7 0.1rem;
   flex-grow: 1;
 }
 
@@ -140,10 +188,10 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.5em;
-  height: 5vh;
-  font-size: 1em;
-  padding: 0.5em;
+  gap: 2.5rem;
+  height: 5dvh;
+  font-size: 1rem;
+  padding: 0.5rem;
 }
 
 footer a {
@@ -161,6 +209,6 @@ footer a img:hover {
 }
 
 footer img {
-  height: 1.5em;
-  width: 1.5em;
+  height: 1.5rem;
+  width: 1.5rem;
 }
