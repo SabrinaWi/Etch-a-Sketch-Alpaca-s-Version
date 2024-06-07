@@ -10,13 +10,19 @@ function getSquaresNumber() {
   return squaresNumber;
 }
 
+const buttons = document.querySelectorAll("button");
+
 promptBtn.addEventListener("click", () => {
   sqrColor = ""; //remove color from previous round so user chooses new one
+  buttons.forEach((button) => button.classList.remove("active"));
+  colorBtns.forEach((colorBtn) => (colorBtn.disabled = false));
+  promptBtn.classList.add("active");
   clearSquares();
   removeAlpacaImg();
   getSquaresNumber();
   errorMessage(squaresNumber);
   createSquares(squaresNumber);
+  activatePaintMode(canvas);
 });
 
 const canvas = document.querySelector(".canvas");
@@ -65,7 +71,11 @@ function getColorChoice(event) {
 }
 
 colorBtns.forEach((colorBtn) => {
-  colorBtn.addEventListener("click", getColorChoice);
+  colorBtn.addEventListener("click", (event) => {
+    colorBtns.forEach((colorBtn) => colorBtn.classList.remove("active"));
+    getColorChoice(event);
+    colorBtn.classList.add("active");
+  });
 });
 
 sqrColor = "";
@@ -115,6 +125,16 @@ const colorArray = [
 ];
 const randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
 
+function activatePaintMode(canvas) {
+  canvas.addEventListener("mouseenter", () => {
+    canvas.style.cursor = 'url("./img/brush-stroke-rounded.svg"), auto';
+  });
+
+  canvas.addEventListener("mouseleave", () => {
+    canvas.style.cursor = "auto";
+  });
+}
+
 function activateMouseListener(square) {
   square.addEventListener("mousemove", () => {
     if (isMouseDown && sqrColor) {
@@ -153,10 +173,24 @@ function activateMouseListener(square) {
 const specialBtn = document.querySelector('button[name="alpaca-btn"]');
 
 specialBtn.addEventListener("click", () => {
+  buttons.forEach((button) => button.classList.remove("active"));
+  colorBtns.forEach((colorBtn) => (colorBtn.disabled = true));
+  specialBtn.classList.add("active");
   clearSquares();
   addAlpacaImg();
   createSquares(20);
+  activateEraseMode(canvas);
 });
+
+function activateEraseMode(canvas) {
+  canvas.addEventListener("mouseenter", () => {
+    canvas.style.cursor = 'url("./img/ai-eraser-stroke-rounded.svg"), auto';
+  });
+
+  canvas.addEventListener("mouseleave", () => {
+    canvas.style.cursor = "auto";
+  });
+}
 
 function activateAlpacaMouseListener(square) {
   let squareOpacity = 1;

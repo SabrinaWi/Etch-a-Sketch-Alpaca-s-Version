@@ -49,34 +49,49 @@ main {
 .menu {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 15vw;
   height: 100%;
   background-color: #40454f;
   padding: 0 1rem 3.5rem;
 }
 
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #797c83;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
 h1 {
   font-size: 2rem;
+  margin: 0.5rem;
+}
+
+h1 span {
+  border-bottom: solid #f6f6f7 0.15rem;
 }
 
 h2 {
   font-size: 1.5rem;
   margin: 0;
   padding: 0.5rem;
+  color: #000000;
 }
 
 .start,
 .color-btns,
 .special {
-  background-color: #797c83;
   padding: 0.5rem 0.4rem;
-  border-radius: 0.5rem;
 }
 
 button {
   border: solid #f6f6f7 0.05rem;
   border-radius: 0.25rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 button:hover {
@@ -84,7 +99,7 @@ button:hover {
   border-radius: 0.25rem;
 }
 
-button:active {
+button.active {
   border: solid #40454f 0.05rem;
   border-radius: 0.25rem;
   box-shadow: 0rem 4.05px 8.1px #f6f6f7,
@@ -106,6 +121,11 @@ button:active {
 .color-btns button {
   width: 2rem;
   aspect-ratio: 1 / 1;
+  border: solid #40454f 0.05rem;
+}
+
+.color-btns button:hover {
+  border: solid #f6f6f7 0.05rem;
 }
 
 #red-btn {
@@ -165,13 +185,13 @@ button:active {
   aspect-ratio: 1 / 1;
 }
 
-/* canvas.painting {
-  cursor: url(./img/brush-stroke-rounded.svg);
+canvas.painting {
+  cursor: url(./img/brush-stroke-rounded.svg), auto;
 }
 
 canvas.erasing {
-  cursor: url(./img/eraser-stroke-rounded.svg);
-} */
+  cursor: url(./img/ai-eraser-stroke-rounded.svg), auto;
+}
 
 .canvas.alpaca-img {
   background-image: url(./img/alpacasmol.png);
