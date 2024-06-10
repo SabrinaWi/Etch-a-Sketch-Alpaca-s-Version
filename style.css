@@ -165,6 +165,10 @@ button.active {
   background-color: #000000;
 }
 
+#white-btn {
+  background-color: #ffffff;
+}
+
 .sketch-area {
   background-color: #40454f;
   display: flex;

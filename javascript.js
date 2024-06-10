@@ -121,6 +121,9 @@ function setSqrColor(colorChoice) {
     case "black-btn":
       sqrColor = "#000000";
       break;
+    case "white-btn":
+      sqrColor = "#FFFFFF";
+      break;
   }
 
   return sqrColor;
