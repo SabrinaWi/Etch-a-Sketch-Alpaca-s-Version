@@ -23,7 +23,7 @@ function deactivateBns(buttons) {
 }
 
 promptBtn.addEventListener("click", () => {
-  sqrColor = ""; //remove color from previous round so user chooses new one
+  sqrColor = ""; //remove color from previous round
   deactivateBns(buttons);
   colorBtns.forEach((colorBtn) => (colorBtn.disabled = false)); //if user interacted with special button before, these need to be reactivated
   activateBtn(promptBtn);
