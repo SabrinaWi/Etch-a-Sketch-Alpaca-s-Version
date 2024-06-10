@@ -12,12 +12,22 @@ function getSquaresNumber() {
 
 const buttons = document.querySelectorAll("button");
 
+//show visually when a button is active/has been clicked
+function activateBtn(button) {
+  button.classList.add("active");
+}
+
+//remove (visual) active state from previously active buttons
+function deactivateBns(buttons) {
+  buttons.forEach((button) => button.classList.remove("active"));
+}
+
 promptBtn.addEventListener("click", () => {
   sqrColor = ""; //remove color from previous round so user chooses new one
-  buttons.forEach((button) => button.classList.remove("active"));
-  colorBtns.forEach((colorBtn) => (colorBtn.disabled = false));
-  promptBtn.classList.add("active");
-  clearSquares();
+  deactivateBns(buttons);
+  colorBtns.forEach((colorBtn) => (colorBtn.disabled = false)); //if user interacted with special button before, these need to be reactivated
+  activateBtn(promptBtn);
+  clearSquares(); //removes squares from previous round
   removeAlpacaImg();
   getSquaresNumber();
   errorMessage(squaresNumber);
@@ -28,7 +38,7 @@ promptBtn.addEventListener("click", () => {
 const canvas = document.querySelector(".canvas");
 const square = document.querySelector(".square");
 
-// Create a div and append it to .canvas
+// Create square divs and append them to .canvas
 
 function createSquares(squaresNumber) {
   for (let i = 0; i < squaresNumber * squaresNumber; i++) {
@@ -38,6 +48,7 @@ function createSquares(squaresNumber) {
     square.classList.add("square");
     canvas.appendChild(square);
     if (canvas.classList.contains("alpaca-img")) {
+      //depending on whether prompt or special button was clicked, different mouse listeners are used
       activateAlpacaMouseListener(square);
     } else {
       activateMouseListener(square);
@@ -54,6 +65,7 @@ function clearSquares() {
 
 function errorMessage(squaresNumber) {
   if (squaresNumber < 1 || squaresNumber > 100) {
+    //to make sure people don't break their browser by adding 1000 squares - LOOKING AT YOU FELIX!
     getSquaresNumber();
   }
 }
@@ -72,9 +84,9 @@ function getColorChoice(event) {
 
 colorBtns.forEach((colorBtn) => {
   colorBtn.addEventListener("click", (event) => {
-    colorBtns.forEach((colorBtn) => colorBtn.classList.remove("active"));
+    deactivateBns(colorBtns); //remove visual active state from previously used button
     getColorChoice(event);
-    colorBtn.classList.add("active");
+    activateBtn(colorBtn); //mark current button visually as active
   });
 });
 
@@ -114,6 +126,8 @@ function setSqrColor(colorChoice) {
   return sqrColor;
 }
 
+//color array to randomize colors for rainbow button
+
 const colorArray = [
   "#df0000",
   "#d65b00",
@@ -123,8 +137,8 @@ const colorArray = [
   "#0511ff",
   "#ca00fd",
 ];
-const randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
 
+//improve user experience: clarify visually that the user can now paint on the canvas
 function activatePaintMode(canvas) {
   canvas.addEventListener("mouseenter", () => {
     canvas.style.cursor = 'url("./img/brush-stroke-rounded.svg"), auto';
@@ -143,7 +157,7 @@ function activateMouseListener(square) {
 
     if (isMouseDown && sqrColor === "rainbow") {
       const randomColor =
-        colorArray[Math.floor(Math.random() * colorArray.length)];
+        colorArray[Math.floor(Math.random() * colorArray.length)]; //use randomized color for rainbow button - adding this here instead of globally ensures rapidly changing colors
       square.style.backgroundColor = randomColor;
     }
   });
@@ -162,7 +176,8 @@ function activateMouseListener(square) {
     }
     if (sqrColor === "rainbow") {
       const randomColor =
-        colorArray[Math.floor(Math.random() * colorArray.length)];
+        colorArray[Math.floor(Math.random() * colorArray.length)]; //use randomized color for rainbow button - adding this here instead of globally ensures rapidly changing colors
+      square.style.backgroundColor = randomColor;
       square.style.backgroundColor = randomColor;
     }
   });
@@ -173,15 +188,16 @@ function activateMouseListener(square) {
 const specialBtn = document.querySelector('button[name="alpaca-btn"]');
 
 specialBtn.addEventListener("click", () => {
-  buttons.forEach((button) => button.classList.remove("active"));
-  colorBtns.forEach((colorBtn) => (colorBtn.disabled = true));
-  specialBtn.classList.add("active");
+  deactivateBns(buttons);
+  colorBtns.forEach((colorBtn) => (colorBtn.disabled = true)); //color buttons aren't supposed to be in use in this mode
+  activateBtn(specialBtn);
   clearSquares();
   addAlpacaImg();
   createSquares(20);
   activateEraseMode(canvas);
 });
 
+//improve user experience: clarify visually that the user will have to erase the squares covering the canvas
 function activateEraseMode(canvas) {
   canvas.addEventListener("mouseenter", () => {
     canvas.style.cursor = 'url("./img/ai-eraser-stroke-rounded.svg"), auto';
@@ -192,6 +208,7 @@ function activateEraseMode(canvas) {
   });
 }
 
+//reduce opacity of squares to uncover the surprise underneath
 function activateAlpacaMouseListener(square) {
   let squareOpacity = 1;
   square.addEventListener("mousemove", () => {

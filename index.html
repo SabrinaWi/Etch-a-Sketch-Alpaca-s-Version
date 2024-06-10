@@ -9,7 +9,10 @@
     <title>Simple Etch-a-Sketch Game</title>
   </head>
   <body ondragstart="return false;" ondrop="return false;">
+    <!-- Solves issues with dragging when trying to pain the canvas instead while holding mouse button down. -->
+
     <header>Etch-a-Sketch &ndash; Alpaca's Version</header>
+
     <main>
       <div class="menu">
         <h1><span>Menu</span></h1>
@@ -44,10 +47,12 @@
           </div>
         </div>
       </div>
+
       <div class="sketch-area">
         <div class="canvas"></div>
       </div>
     </main>
+
     <footer>
       <p>
         &copy; 2024 Sabrina Williams &ndash; made as an assignment for

@@ -5,7 +5,6 @@ html {
   *:before,
   *:after {
     box-sizing: inherit;
-    /* border: solid #f6f6f7 0.15rem; */
   }
 }
 
@@ -25,7 +24,7 @@ body {
 header {
   display: flex;
   min-height: 10dvh;
-  font-size: 4.5rem;
+  font-size: 4rem;
   justify-content: center;
   align-items: center;
 }
@@ -216,6 +215,7 @@ footer {
 
 footer a {
   color: inherit;
+  overflow: hidden;
 }
 
 footer a:active {
