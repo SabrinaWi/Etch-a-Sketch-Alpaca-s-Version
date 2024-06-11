@@ -144,7 +144,7 @@ const colorArray = [
 //improve user experience: clarify visually that the user can now paint on the canvas
 function activatePaintMode(canvas) {
   canvas.addEventListener("mouseenter", () => {
-    canvas.style.cursor = 'url("./img/brush-stroke-rounded.svg"), auto';
+    canvas.style.cursor = 'url("./img/brush-stroke-rounded.svg") 0 24, auto';
   });
 
   canvas.addEventListener("mouseleave", () => {

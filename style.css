@@ -188,14 +188,6 @@ button.active {
   aspect-ratio: 1 / 1;
 }
 
-canvas.painting {
-  cursor: url(./img/brush-stroke-rounded.svg), auto;
-}
-
-canvas.erasing {
-  cursor: url(./img/ai-eraser-stroke-rounded.svg), auto;
-}
-
 .canvas.alpaca-img {
   background-image: url(./img/alpacasmol.png);
   background-size: cover;
